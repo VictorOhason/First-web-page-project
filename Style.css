@@ -1,0 +1,2180 @@
+/* =======================================
+   GLOBAL STYLES & RESET
+======================================= 
+   These styles apply to ALL elements on every page.
+   They establish baseline defaults for fonts, colors, and spacing.
+*/
+
+* {
+    /* 
+      The asterisk (*) selector targets EVERY element on the page.
+      Used for "CSS reset" - removing browser default margins and padding.
+    */
+    margin: 0;
+    /* 
+      Removes default spacing around elements.
+      Prevents unwanted gaps that browsers add by default.
+    */
+    padding: 0;
+    /* 
+      Removes default internal spacing within elements.
+      Gives us complete control over spacing throughout the site.
+    */
+    box-sizing: border-box;
+    /* 
+      Changes how width/height are calculated.
+      Includes padding and border in the element's total width.
+      Makes sizing more predictable and easier to work with.
+    */
+}
+
+body {
+    /* 
+      <body> tag contains all visible page content.
+      These styles apply globally to the entire page background.
+    */
+    background-color: #faf8f5;
+    /* 
+      Sets page background to light cream/beige color.
+      #faf8f5 is a warm, inviting off-white perfect for bakery branding.
+      Used throughout as primary background color.
+    */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 
+      Sets default font for all text on the page.
+      'Segoe UI' is primary (modern, professional-looking).
+      Fallback fonts: Tahoma, Geneva, Verdana, sans-serif (if Segoe UI unavailable).
+      sans-serif at end ensures a clean font loads even if others fail.
+    */
+    color: #2c2c2c;
+    /* 
+      Default text color is dark gray (not pure black #000000).
+      #2c2c2c is easier on eyes and looks more professional.
+      Applied to all text unless overridden by more specific selectors.
+    */
+    line-height: 1.6;
+    /* 
+      Sets default spacing between lines of text.
+      1.6 means lines are 1.6x the font size apart.
+      Improves readability by adding breathing room to paragraphs.
+    */
+}
+
+
+/* =======================================
+   NAVIGATION BAR STYLES
+======================================= 
+   Styles for the header navigation that appears at top of all pages.
+   Uses flexbox for responsive horizontal layout.
+*/
+
+.navbar {
+    /* 
+      Target the <nav> element with class="navbar"
+      This is the main header navigation bar.
+    */
+    background: linear-gradient(135deg, #fff 0%, #faf8f5 100%);
+    /* 
+      Creates subtle gradient background.
+      Starts with white (#fff) at top-left.
+      Fades to cream (#faf8f5) at bottom-right.
+      135deg = diagonal direction (top-left to bottom-right).
+      Adds sophistication without being too bold.
+    */
+    padding: 1.2rem 4rem;
+    /* 
+      1.2rem = vertical padding (top and bottom)
+      4rem = horizontal padding (left and right)
+      rem = relative to root font size, makes it scalable.
+      Generous padding makes navigation area spacious and clickable.
+    */
+    display: flex;
+    /* 
+      Activates flexbox layout mode.
+      Makes child elements (logo, nav-links) arrange horizontally.
+      Default flex-direction is row (left to right).
+    */
+    justify-content: space-between;
+    /* 
+      Spreads logo and nav-links to opposite ends.
+      Logo on far left, navigation links on far right.
+      Creates balanced header layout.
+    */
+    align-items: center;
+    /* 
+      Vertically centers logo and nav-links to same height.
+      Ensures everything in navbar aligns neatly.
+    */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    /* 
+      Adds subtle shadow below navbar.
+      0 = no horizontal offset
+      2px = slight vertical offset downward
+      12px = soft blur radius makes shadow look natural
+      rgba(0,0,0,0.06) = very faint black (6% opacity)
+      Shadow creates visual separation from content below.
+    */
+    position: sticky;
+    /* 
+      Makes navbar "sticky" = stays at top when scrolling.
+      Users can always see navigation no matter where they've scrolled.
+      Better for user experience and site navigation.
+    */
+    top: 0;
+    /* 
+      Positions sticky element at very top of viewport.
+      Means navbar appears at top edge when scrolling.
+    */
+    z-index: 100;
+    /* 
+      Stacking order = how elements layer on top of each other.
+      100 = very high, ensures navbar floats above other content.
+      Prevents content from overlapping the sticky navigation.
+    */
+}
+
+.logo {
+    /* 
+      Target the bakery name/brand in the navbar.
+      <div class="logo">The Muffin Man</div>
+    */
+    font-size: 1.8rem;
+    /* 
+      Large font size for brand prominence.
+      1.8rem = 1.8x the root font size.
+      Makes "The Muffin Man" stand out as the brand identity.
+    */
+    font-weight: 800;
+    /* 
+      Very bold/heavy font weight (0-900 scale, 800 is very bold).
+      Makes brand name impactful and memorable.
+    */
+    background: linear-gradient(135deg, #d35400 0%, #ff6b35 100%);
+    /* 
+      Creates orange color gradient for the logo text.
+      #d35400 (darker orange) at start.
+      #ff6b35 (lighter/brighter orange) at end.
+      Diagonal gradient (135deg) adds visual interest.
+    */
+    -webkit-background-clip: text;
+    /* 
+      WebKit (Safari/Chrome) specific property.
+      Clips the gradient background to only fill the text shapes.
+      Makes text appear in gradient colors.
+    */
+    -webkit-text-fill-color: transparent;
+    /* 
+      WebKit property that makes text itself transparent.
+      Allows the gradient background to show through text.
+      Combined with background-clip: text, creates gradient text effect.
+    */
+    background-clip: text;
+    /* 
+      Standard property (not WebKit-specific) for background clipping.
+      Included for browser compatibility and future-proofing.
+    */
+    letter-spacing: -0.5px;
+    /* 
+      Reduces space between letters slightly (negative value = tighter).
+      -0.5px brings letters slightly closer together.
+      Gives brand name a more cohesive, stylish appearance.
+    */
+}
+
+.nav-links {
+    /* 
+      Container for all the navigation links.
+      <div class="nav-links">contains all <a> elements</div>
+    */
+    display: flex;
+    /* 
+      Makes child links (nav-item elements) layout horizontally.
+      Default direction is row (left to right).
+    */
+    gap: 3.5rem;
+    /* 
+      Space between navigation links.
+      3.5rem = quite generous spacing between links.
+      rem = scales with root font size for responsiveness.
+      Makes navigation links easy to click and not crowded.
+    */
+}
+
+.nav-item {
+    /* 
+      Styling for individual navigation links.
+      Targets each <a class="nav-item"> element.
+    */
+    text-decoration: none;
+    /* 
+      Removes default blue underline from links.
+      We'll add our own custom underline effect on hover.
+    */
+    color: #4a4a4a;
+    /* 
+      Link text color is medium dark gray.
+      Not pure black (#000) which would be too harsh.
+      #4a4a4a is softer and more professional-looking.
+    */
+    font-weight: 600;
+    /* 
+      Semi-bold font (not as bold as logo, but bolder than body text).
+      600 on 0-900 scale = medium-strong weight.
+      Makes navigation clearly stand out from regular content.
+    */
+    font-size: 0.95rem;
+    /* 
+      Slightly smaller than default body text.
+      0.95rem keeps navigation compact without being hard to read.
+    */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 
+      Smooth animation for all property changes.
+      0.3s = animation duration (300 milliseconds).
+      cubic-bezier(0.4, 0, 0.2, 1) = custom easing curve.
+      Makes hover effects feel smooth and premium.
+    */
+    position: relative;
+    /* 
+      Allows positioning of ::after pseudo-element relative to this link.
+      Needed for custom underline animation effect.
+    */
+}
+
+.nav-item:hover {
+    /* 
+      Styles that apply when user hovers mouse over a navigation link.
+      :hover is a pseudo-class (special element state).
+    */
+    color: #d35400;
+    /* 
+      Changes text to orange when hovering.
+      #d35400 = darker orange matching brand colors.
+      Provides visual feedback that link is interactive.
+    */
+}
+
+.nav-item::after {
+    /* 
+      ::after is a pseudo-element (creates fake element after text).
+      Creates the animated underline effect under nav links.
+      Not a real HTML element, just CSS visual effect.
+    */
+    content: '';
+    /* 
+      Pseudo-elements require 'content' property.
+      Empty string '' means the pseudo-element has no text content.
+      It's just used for decoration.
+    */
+    position: absolute;
+    /* 
+      Positions underline relative to the nav-item (which is position: relative).
+      Allows exact placement below the text.
+    */
+    bottom: -5px;
+    /* 
+      Places underline 5 pixels below the link text.
+      Negative value = below (if it was positive, it would be above).
+    */
+    left: 0;
+    /* 
+      Starts at the left edge of the link text.
+    */
+    width: 0;
+    /* 
+      Initial width is 0 (underline invisible).
+      Will animate to 100% width on hover.
+    */
+    height: 2px;
+    /* 
+      Thickness of the underline = 2 pixels.
+      Thin, subtle line that doesn't overpower the text.
+    */
+    background: linear-gradient(90deg, #d35400, #ff6b35);
+    /* 
+      Underline itself has orange gradient.
+      90deg = horizontal gradient (left to right).
+      #d35400 (darker orange) to #ff6b35 (lighter orange).
+      Matches the brand color scheme.
+    */
+    transition: width 0.3s ease;
+    /* 
+      Animates the width change smoothly.
+      0.3s = same duration as the nav-item transition (feels cohesive).
+      ease = standard easing curve (starts slow, speeds up, ends slow).
+    */
+}
+
+.nav-item:hover::after {
+    /* 
+      When hovering over nav-item, style its ::after pseudo-element.
+      Combined effect: text changes color AND underline appears.
+    */
+    width: 100%;
+    /* 
+      Underline grows from 0% width to 100% width.
+      Creates sliding/growing underline animation.
+    */
+}
+
+.nav-links a.active {
+    /* 
+      Styles for currently active/selected page link.
+      class="active" is added to the current page's link in HTML.
+      Example: on home page, the "Home" link has class="active"
+    */
+    color: #d35400;
+    /* 
+      Active link is always displayed in orange.
+      Tells users which page they're currently on.
+    */
+}
+
+.nav-links a.active::after {
+    /* 
+      Active link's underline is always visible (not just on hover).
+    */
+    width: 100%;
+    /* 
+      Underline is full width for active links.
+      Permanent indicator of current page.
+    */
+}
+
+
+/* =======================================
+   HERO SECTION STYLES
+======================================= 
+   Large prominent banner at top of homepage.
+   Contains background image with text overlay.
+*/
+
+.homepage-hero {
+    /* 
+      Container for the entire hero section.
+      <section class="homepage-hero">
+    */
+    position: relative;
+    /* 
+      Creates positioning context for absolutely positioned children.
+      Child elements (image, text) position relative to this container.
+    */
+    display: flex;
+    /* 
+      Flexbox layout for centering content.
+      Used specifically to center the text overlay box.
+    */
+    justify-content: center;
+    /* 
+      Centers content horizontally.
+      Text overlay box appears in middle of hero horizontally.
+    */
+    align-items: center;
+    /* 
+      Centers content vertically.
+      Text overlay box appears in middle of hero vertically.
+    */
+    height: 650px;
+    /* 
+      Fixed height for the hero section.
+      650px = large, prominent area that grabs attention.
+      Creates impressive full-width banner effect.
+    */
+    overflow: hidden;
+    /* 
+      Hides any content that extends beyond container boundaries.
+      Ensures background image doesn't overflow section.
+    */
+}
+
+.hero-image {
+    /* 
+      The background image for the hero section.
+      <img src="Yummy.jpg" class="hero-image">
+    */
+    position: absolute;
+    /* 
+      Removes image from normal document flow.
+      Allows text overlay to sit on top of it.
+      Positioned relative to parent .homepage-hero (which is relative).
+    */
+    top: 0;
+    /* 
+      Aligns image to the top of the hero container.
+    */
+    left: 0;
+    /* 
+      Aligns image to the left of the hero container.
+    */
+    width: 100%;
+    /* 
+      Image stretches to fill full width of container.
+    */
+    height: 100%;
+    /* 
+      Image stretches to fill full height of container.
+      Combined with width: 100%, image covers entire hero area.
+    */
+    object-fit: cover;
+    /* 
+      Scales image to cover entire container while maintaining aspect ratio.
+      May crop parts of image if aspect ratio doesn't match container.
+      Ensures no empty space (like background-size: cover in old CSS).
+    */
+    z-index: 1;
+    /* 
+      Stacking order = background image sits behind text.
+      Lower z-index (1) means it's behind.
+      Text overlay has higher z-index (2) so it appears in front.
+    */
+    filter: brightness(0.7) contrast(1.1);
+    /* 
+      Adjusts image appearance:
+      brightness(0.7) = darkens image to 70% brightness.
+      Makes white text readable on top of image.
+      contrast(1.1) = increases contrast to 110%.
+      Makes image more visually interesting.
+      Combined: darkens image while keeping colors vibrant.
+    */
+}
+
+.hero-text-overlay {
+    /* 
+      Text content box that sits on top of the background image.
+      <div class="hero-text-overlay">
+    */
+    position: absolute;
+    /* 
+      Positions this box on top of the background image.
+      Positioned relative to parent .homepage-hero.
+    */
+    top: 50%;
+    /* 
+      Positions box at vertical center (50% down from top).
+    */
+    left: 50%;
+    /* 
+      Positions box at horizontal center (50% from left).
+    */
+    transform: translate(-50%, -50%);
+    /* 
+      Adjusts position so the box's CENTER aligns with the 50%,50% point.
+      Without this, the box's TOP-LEFT would be at 50%,50% (slightly off-center).
+      -50% on both X and Y moves the box up and left by half its own size.
+      Result: perfectly centered box.
+    */
+    text-align: center;
+    /* 
+      Centers all text inside the overlay box.
+      Heading, paragraph, and button all center horizontally.
+    */
+    color: white;
+    /* 
+      All text inside box is white for contrast against dark image.
+    */
+    background-color: rgba(0, 0, 0, 0.35);
+    /* 
+      Semi-transparent dark background behind text.
+      rgba = red, green, blue, alpha (opacity).
+      (0, 0, 0, 0.35) = black with 35% opacity.
+      Makes white text readable against any background image.
+    */
+    padding: 3.5rem 4rem;
+    /* 
+      Internal spacing inside the box.
+      3.5rem = top and bottom padding.
+      4rem = left and right padding.
+      Gives text breathing room inside the box.
+    */
+    border-radius: 16px;
+    /* 
+      Rounds the corners of the overlay box.
+      16px = fairly rounded, modern appearance.
+    */
+    z-index: 2;
+    /* 
+      Higher z-index than background image (1).
+      Ensures text box appears in front of image.
+    */
+    max-width: 900px;
+    /* 
+      Limits width of text box to 900px max.
+      Prevents text from being too wide on extra-large screens.
+      Keeps text readable and focused.
+    */
+    backdrop-filter: blur(8px);
+    /* 
+      Blurs background (image) behind the text box.
+      8px = blur amount.
+      Modern glassmorphism effect = blurred background with semi-transparent box.
+      Makes text stand out more and looks premium.
+    */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* 
+      Thin white border around the overlay box.
+      1px = very thin line.
+      rgba(255, 255, 255, 0.15) = white with 15% opacity.
+      Subtle border adds definition without being obvious.
+    */
+}
+
+.hero-text-overlay h2 {
+    /* 
+      Styling for the main headline inside the overlay.
+      <h2>Baking Happiness Every Day</h2>
+    */
+    font-size: 3.2rem;
+    /* 
+      Very large font for main headline.
+      3.2rem = 3.2x the root font size.
+      Grabs attention and communicates main message.
+    */
+    margin: 0 0 1.2rem 0;
+    /* 
+      Spacing around the heading.
+      0 = no left/right margin.
+      1.2rem = space below heading (before paragraph).
+      0 = no margin below second value.
+      Removes default heading margins for custom spacing control.
+    */
+    font-weight: 800;
+    /* 
+      Extra bold font (800 on 0-900 scale).
+      Makes headline stand out strongly.
+    */
+    letter-spacing: -1px;
+    /* 
+      Tightens spacing between letters.
+      -1px = brings letters closer.
+      Makes headline look more cohesive and impactful.
+    */
+}
+
+.hero-text-overlay p {
+    /* 
+      Styling for the descriptive paragraph.
+      <p>At The Muffin Man...</p>
+    */
+    font-size: 1.1rem;
+    /* 
+      Slightly larger than body text.
+      1.1rem = 10% larger.
+      Makes paragraph easy to read over image.
+    */
+    line-height: 1.8;
+    /* 
+      Extra spacing between lines for readability.
+      1.8 = lines are 1.8x apart.
+      Important for reading text on images where contrast might be lower.
+    */
+    margin: 0 0 2rem 0;
+    /* 
+      Removes left/right margin.
+      2rem = space below paragraph (before button).
+      Spaces paragraph away from button below.
+    */
+    font-weight: 300;
+    /* 
+      Light font weight (300 on 0-900 scale).
+      Lighter weight contrasts with bold headline.
+      Creates visual hierarchy: bold headline, light paragraph.
+    */
+    letter-spacing: 0.3px;
+    /* 
+      Adds small space between letters.
+      +0.3px makes text slightly more spread out.
+      Improves readability over darker backgrounds.
+    */
+}
+
+.order-button {
+    /* 
+      Call-to-action button styling.
+      <a href="checkout.html" class="order-button">Order Now</a>
+    */
+    display: inline-block;
+    /* 
+      Makes <a> tag behave like a block element.
+      Allows padding, width, height to work properly.
+      inline-block = flows with text but respects block properties.
+    */
+    background: linear-gradient(135deg, #ff6b35 0%, #d35400 100%);
+    /* 
+      Gradient background from light to dark orange.
+      #ff6b35 (bright orange) to #d35400 (darker orange).
+      135deg = diagonal gradient.
+      Creates eye-catching button.
+    */
+    color: #fff;
+    /* 
+      White text on the orange button.
+      High contrast makes text readable.
+    */
+    padding: 14px 32px;
+    /* 
+      Internal spacing inside button.
+      14px = top and bottom padding.
+      32px = left and right padding.
+      Makes button large enough to click easily.
+    */
+    text-decoration: none;
+    /* 
+      Removes underline that <a> tags normally have.
+      Button looks like a button, not a link.
+    */
+    border-radius: 50px;
+    /* 
+      Very rounded corners.
+      50px = creates pill-shaped button.
+      Modern, friendly appearance.
+    */
+    font-size: 1rem;
+    /* 
+      Same size as body text.
+    */
+    font-weight: 700;
+    /* 
+      Bold text (700 on 0-900 scale).
+      Makes "Order Now" stand out clearly.
+    */
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+    /* 
+      Adds shadow below button.
+      0 = no horizontal offset.
+      8px = vertical offset downward.
+      24px = large soft blur.
+      rgba(255, 107, 53, 0.3) = orange shadow (30% opacity).
+      Shadow makes button appear to float above surface.
+    */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 
+      Smooth animation for all property changes.
+      0.3s = 300ms duration.
+      cubic-bezier creates smooth premium feeling.
+    */
+    letter-spacing: 0.5px;
+    /* 
+      Slight letter spacing in button text.
+      +0.5px spreads letters apart slightly.
+      Makes text feel more spacious and premium.
+    */
+}
+
+.order-button:hover {
+    /* 
+      Styles when user hovers mouse over button.
+    */
+    transform: translateY(-4px);
+    /* 
+      Moves button up 4 pixels on hover.
+      translateY(-4px) = negative means up.
+      Creates "lift" effect = button appears to float up.
+      Provides visual feedback that button is interactive.
+    */
+    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
+    /* 
+      Enhances shadow on hover.
+      12px = larger vertical offset (button appears higher).
+      32px = larger blur (softer shadow).
+      rgba(..., 0.4) = stronger shadow (40% instead of 30%).
+      Shadow grows as button lifts = realistic 3D effect.
+    */
+}
+
+
+/* =======================================
+   SECTION TITLES
+======================================= 
+   Common styles for all major section headings.
+   Applied to "Our Delicious Products", "Our Services", etc.
+*/
+
+.section-title {
+    /* 
+      Used in Products, Services, Values, About, Contact sections.
+      <h2 class="section-title">Our Delicious Products</h2>
+    */
+    text-align: center;
+    /* 
+      Centers heading horizontally.
+      All section titles are centered for emphasis.
+    */
+    font-size: 2.8rem;
+    /* 
+      Large font for section headings.
+      2.8rem = 2.8x root font size.
+      Smaller than hero h2 (3.2rem) but still prominent.
+    */
+    margin: 3rem 0 1rem 0;
+    /* 
+      Spacing around heading.
+      3rem = space above (separates from previous section).
+      0 = no left/right margin.
+      1rem = space below heading (before content).
+      Creates breathing room between sections.
+    */
+    color: #1a1a1a;
+    /* 
+      Very dark gray/nearly black text.
+      #1a1a1a provides high contrast for readability.
+    */
+    font-weight: 800;
+    /* 
+      Extra bold (800 on 0-900 scale).
+      Makes headings prominent and impactful.
+    */
+    letter-spacing: -0.5px;
+    /* 
+      Tightens letter spacing.
+      -0.5px = slightly closer together.
+      Makes heading feel more cohesive.
+    */
+}
+
+
+/* =======================================
+   PRODUCTS SECTION
+======================================= 
+   Styling for products page and product display.
+*/
+
+.products {
+    /* 
+      Container for entire products section.
+      <section class="products">
+    */
+    padding: 4.5rem 2rem;
+    /* 
+      External spacing around section.
+      4.5rem = top and bottom padding (vertical breathing room).
+      2rem = left and right padding (responsive to content width).
+      Creates spacing between sections.
+    */
+    background: linear-gradient(180deg, #faf8f5 0%, #f5f2ed 100%);
+    /* 
+      Subtle gradient background.
+      #faf8f5 (light cream) at top to #f5f2ed (slightly darker cream) at bottom.
+      180deg = vertical gradient (top to bottom).
+      Adds visual depth without being distracting.
+    */
+}
+
+.product-grid {
+    /* 
+      Container that displays products in grid layout.
+      <div class="product-grid"> contains all product cards.
+    */
+    display: grid;
+    /* 
+      Activates CSS Grid layout.
+      Arranges items in rows and columns.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 
+      Creates responsive grid columns.
+      repeat(auto-fit, minmax(300px, 1fr)):
+      - auto-fit = automatically create as many columns as fit.
+      - minmax(300px, 1fr) = each column is minimum 300px, maximum 1 equal share (1fr).
+      - On desktop: ~4 columns.
+      - On tablet: ~2-3 columns.
+      - On mobile: 1 column.
+      Automatically responsive without media queries!
+    */
+    gap: 2.5rem;
+    /* 
+      Space between product cards.
+      2.5rem = 2.5x root font size.
+      Generous spacing makes products breathe, not cramped.
+    */
+    max-width: 1400px;
+    /* 
+      Maximum width of grid.
+      On very large screens, grid doesn't exceed 1400px.
+      Prevents products from stretching too wide.
+    */
+    margin: 0 auto;
+    /* 
+      Centers grid horizontally.
+      0 = no top/bottom margin.
+      auto on left and right = equal margins, centers content.
+    */
+}
+
+.product-card {
+    /* 
+      Individual product card styling.
+      <div class="product-card"> wraps each product.
+    */
+    background: #fff;
+    /* 
+      White background for cards.
+      Stands out from the gradient section background.
+    */
+    border-radius: 16px;
+    /* 
+      Rounded corners.
+      16px = moderately rounded, modern look.
+    */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    /* 
+      Subtle shadow under card.
+      0 = no horizontal offset.
+      4px = slight vertical offset.
+      16px = soft blur.
+      rgba(0,0,0,0.07) = faint black shadow (7% opacity).
+      Makes card appear slightly lifted from background.
+    */
+    overflow: hidden;
+    /* 
+      Hides content that extends beyond card boundaries.
+      Important for image corners to respect border-radius.
+    */
+    text-align: center;
+    /* 
+      Centers all text inside card (name, description, price).
+    */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 
+      Smooth animation for all property changes on hover.
+      0.3s = 300ms duration.
+      cubic-bezier = custom easing for premium feel.
+    */
+    border: 1px solid #f0ebe5;
+    /* 
+      Thin subtle border around card.
+      #f0ebe5 = light tan/beige color.
+      1px = very thin, just adds definition.
+    */
+}
+
+.product-card:hover {
+    /* 
+      Styles when user hovers over a product card.
+    */
+    transform: translateY(-12px);
+    /* 
+      Moves card up 12 pixels on hover.
+      translateY(-12px) = negative means up.
+      Creates floating effect on hover.
+      Provides interactive feedback.
+    */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    /* 
+      Enhances shadow dramatically on hover.
+      0 = no horizontal offset.
+      20px = larger vertical offset (card is "higher").
+      40px = larger blur (softer shadow).
+      rgba(0,0,0,0.12) = darker shadow (12% opacity vs 7% before).
+      Stronger shadow emphasizes the lift effect.
+    */
+    border-color: #ff6b35;
+    /* 
+      Border changes to orange on hover.
+      Indicates card is selected/focused.
+    */
+}
+
+.product-card .card-media {
+    /* 
+      Container for the product image.
+      <div class="card-media"><img.../></div>
+    */
+    position: relative;
+    /* 
+      Creates positioning context for children.
+      Allows image to be positioned absolutely if needed.
+    */
+    width: 100%;
+    /* 
+      Image container fills card width.
+    */
+    height: 240px;
+    /* 
+      Fixed height for product images.
+      240px = moderate size for good visibility.
+      Consistent height across all product cards (whether image is wide or tall).
+    */
+    overflow: hidden;
+    /* 
+      Hides image content that extends beyond container.
+      Keeps images from overflowing rounded corners.
+    */
+    border-radius: 16px 16px 0 0;
+    /* 
+      Rounds only the top corners of image.
+      16px 16px = top-left and top-right.
+      0 0 = bottom corners not rounded (card corners below handle it).
+    */
+}
+
+.product-card .card-media img {
+    /* 
+      Styling for the actual product image element.
+      <img src="ZaMuffin.jpg" alt="Blueberry Muffin">
+    */
+    width: 100%;
+    /* 
+      Image fills container width.
+    */
+    height: 100%;
+    /* 
+      Image fills container height.
+    */
+    object-fit: cover;
+    /* 
+      Scales image to cover entire container while maintaining aspect ratio.
+      May crop parts of image if aspect ratio doesn't match container.
+      Ensures no empty space or distortion.
+    */
+    display: block;
+    /* 
+      Removes inline spacing around image.
+      <img> is inline by default, which adds unwanted space.
+      display: block removes that space.
+    */
+    transition: transform 0.4s ease;
+    /* 
+      Smooth animation for transform property.
+      0.4s = 400ms duration.
+      ease = standard easing curve.
+      Makes image zoom animation smooth.
+    */
+}
+
+.product-card:hover .card-media img {
+    /* 
+      Image styling when card is hovered.
+    */
+    transform: scale(1.08);
+    /* 
+      Zooms image to 108% of original size.
+      1.08 = 8% enlargement.
+      Creates subtle zoom effect on hover.
+      Not too extreme, stays professional.
+    */
+}
+
+.product-card h3 {
+    /* 
+      Product name heading.
+      <h3>Blueberry Muffin</h3>
+    */
+    font-size: 1.3rem;
+    /* 
+      Medium-large font for product name.
+      1.3rem = 30% larger than body text.
+      Makes name stand out without being huge.
+    */
+    color: #1a1a1a;
+    /* 
+      Very dark color for good readability.
+    */
+    margin: 1.5rem 1.2rem 0.5rem 1.2rem;
+    /* 
+      Spacing around heading.
+      1.5rem = space above (from image).
+      1.2rem = left and right margins.
+      0.5rem = space below (before description).
+    */
+    font-weight: 700;
+    /* 
+      Bold font (700 on 0-900 scale).
+      Makes product names prominent.
+    */
+    letter-spacing: -0.3px;
+    /* 
+      Slightly tightens letter spacing.
+      Makes name feel more cohesive.
+    */
+}
+
+.product-description {
+    /* 
+      Short description of the product.
+      <p class="product-description">A classic muffin...</p>
+    */
+    color: #666;
+    /* 
+      Medium gray text.
+      Less prominent than name, but readable.
+    */
+    font-size: 0.95rem;
+    /* 
+      Slightly smaller than body text.
+      0.95rem = 5% smaller.
+      Fits description into smaller space.
+    */
+    margin: 0.5rem 1.2rem 1.2rem 1.2rem;
+    /* 
+      Spacing around description.
+      0.5rem = space above (from heading).
+      1.2rem = left and right margins.
+      1.2rem = space below (before price).
+    */
+    line-height: 1.6;
+    /* 
+      Good readability with spacing between lines.
+    */
+}
+
+.product-price {
+    /* 
+      Price badge styling.
+      <span class="product-price">£2.99</span>
+    */
+    display: inline-block;
+    /* 
+      Makes span behave like block element.
+      Allows padding and proper sizing.
+      inline-block = flows with text but respects block properties.
+    */
+    background: linear-gradient(135deg, #ffe8d6 0%, #ffd9c0 100%);
+    /* 
+      Gradient background behind price.
+      #ffe8d6 (light peachy) to #ffd9c0 (slightly darker peachy).
+      Soft orange tones complement the brand.
+      135deg = diagonal gradient.
+    */
+    color: #d35400;
+    /* 
+      Dark orange text.
+      Stands out on the light orange background.
+    */
+    padding: 10px 18px;
+    /* 
+      Internal spacing inside price badge.
+      10px = top and bottom.
+      18px = left and right.
+      Creates pill-shaped badge around price.
+    */
+    border-radius: 30px;
+    /* 
+      Very rounded corners.
+      30px = creates elongated pill shape.
+      Looks like a price sticker or badge.
+    */
+    font-weight: 800;
+    /* 
+      Extra bold (800 on 0-900 scale).
+      Makes price stand out.
+    */
+    font-size: 1.1rem;
+    /* 
+      Slightly larger than body text.
+      1.1rem = 10% larger.
+      Makes price prominent.
+    */
+    margin: 0 0 1.5rem 0;
+    /* 
+      Spacing around price badge.
+      0 = no left/right margin.
+      1.5rem = space below (before card ends).
+    */
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+    /* 
+      Subtle shadow under price badge.
+      0 = no horizontal offset.
+      4px = slight vertical offset.
+      12px = soft blur.
+      rgba(255, 107, 53, 0.15) = faint orange shadow (15% opacity).
+      Makes badge appear slightly floating.
+    */
+    border: none;
+position: relative;
+z-index: 999;
+pointer-events: auto;
+cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    /* 
+      Media query = styles that apply only on smaller screens (max 768px width).
+      768px = typical tablet size breakpoint.
+    */
+    .product-grid {
+        /* 
+          Changes grid layout on mobile/tablet.
+        */
+        grid-template-columns: 1fr;
+        /* 
+          1fr = single column.
+          Products stack vertically on mobile.
+        */
+        gap: 2rem;
+        /* 
+          Slightly smaller gap on mobile.
+          2rem vs 2.5rem on desktop.
+          Saves vertical space on smaller screens.
+        */
+    }
+}
+
+
+/* =======================================
+   SERVICES SECTION
+======================================= 
+   Styling for services page and service cards.
+*/
+
+.services {
+    /* 
+      Container for entire services section.
+    */
+    padding: 4.5rem 2rem;
+    /* 
+      Spacing around section.
+      Same padding as products section for consistency.
+    */
+    background: linear-gradient(180deg, #faf8f5 0%, #f5f2ed 100%);
+    /* 
+      Same subtle gradient as products section.
+      Consistent background treatment throughout site.
+    */
+}
+
+.services > p {
+    /* 
+      Subtitle paragraph directly inside services section.
+      > means direct child only (not nested deeper).
+      <section><p>Some of our services...</p></section>
+    */
+    text-align: center;
+    /* 
+      Centers the subtitle text.
+    */
+    color: #666;
+    /* 
+      Medium gray text.
+      Less prominent than heading.
+    */
+    font-size: 1.15rem;
+    /* 
+      Slightly larger than body text.
+      1.15rem = 15% larger.
+      Makes subtitle readable and distinct.
+    */
+    margin: 0 0 3.5rem 0;
+    /* 
+      Spacing around subtitle.
+      0 = no left/right margin.
+      3.5rem = large space below (before service cards).
+    */
+    max-width: 700px;
+    /* 
+      Limits subtitle width.
+      Prevents text from stretching too wide.
+      Better for readability.
+    */
+    margin-left: auto;
+    margin-right: auto;
+    /* 
+      Centers subtitle horizontally.
+      auto margins on left and right = centered.
+    */
+    font-weight: 500;
+    /* 
+      Medium font weight (500 on 0-900 scale).
+      Between normal and bold.
+    */
+    letter-spacing: 0.3px;
+    /* 
+      Slight letter spacing.
+      +0.3px = spreads letters apart slightly.
+      Improves readability.
+    */
+}
+
+.service-grid {
+    /* 
+      Container for service cards.
+      <div class="service-grid"> contains service cards.
+    */
+    display: grid;
+    /* 
+      CSS Grid layout for service cards.
+    */
+    grid-template-columns: repeat(4, 1fr);
+    /* 
+      Creates exactly 4 equal columns.
+      repeat(4, 1fr) = 4 columns, each 1 equal share (1fr).
+      All 4 services fit in one row on desktop.
+    */
+    gap: 2.5rem;
+    /* 
+      Space between service cards.
+      Same generous spacing as product cards.
+    */
+    max-width: 1400px;
+    /* 
+      Maximum width of grid.
+      Prevents services from stretching too wide.
+    */
+    margin: 0 auto;
+    /* 
+      Centers grid horizontally.
+    */
+}
+
+.service-card {
+    /* 
+      Individual service card styling.
+      Similar to product cards but with slight differences.
+    */
+    background: #fff;
+    /* 
+      White background.
+    */
+    border-radius: 16px;
+    /* 
+      Rounded corners.
+    */
+    overflow: hidden;
+    /* 
+      Hides overflowing content.
+    */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    /* 
+      Subtle shadow.
+      Same as product cards.
+    */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 
+      Smooth hover animations.
+    */
+    border: 1px solid #f0ebe5;
+    /* 
+      Subtle border.
+    */
+    text-align: center;
+    /* 
+      Centers text content.
+    */
+    padding-bottom: 1.5rem;
+    /* 
+      Extra padding at bottom of card.
+      Prevents text from touching bottom edge.
+    */
+}
+
+.service-card:hover {
+    /* 
+      Hover styles for service cards.
+    */
+    transform: translateY(-12px);
+    /* 
+      Lifts card up on hover.
+      Same effect as product cards.
+    */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    /* 
+      Enhanced shadow on hover.
+      Same as product cards.
+    */
+    border-color: #ff6b35;
+    /* 
+      Orange border on hover.
+    */
+}
+
+.service-card .card-media {
+    /* 
+      Image container for service photos.
+    */
+    position: relative;
+    /* 
+      Positioning context.
+    */
+    width: 100%;
+    /* 
+      Full width of card.
+    */
+    height: 200px;
+    /* 
+      Fixed height for service images.
+      200px = slightly smaller than product images (240px).
+      Services are briefer than product details.
+    */
+    overflow: hidden;
+    /* 
+      Hides overflowing image content.
+    */
+    border-radius: 0;
+    /* 
+      No rounding on image itself.
+      Card container handles rounding.
+    */
+}
+
+.service-card .card-media img {
+    /* 
+      Service image styling.
+    */
+    width: 100%;
+    /* 
+      Full width of container.
+    */
+    height: 100%;
+    /* 
+      Full height of container.
+    */
+    object-fit: cover;
+    /* 
+      Covers container while maintaining aspect ratio.
+    */
+    display: block;
+    /* 
+      Removes inline spacing.
+    */
+    transition: transform 0.4s ease;
+    /* 
+      Smooth zoom animation on hover.
+    */
+}
+
+.service-card:hover .card-media img {
+    /* 
+      Image styling when card hovered.
+    */
+    transform: scale(1.08);
+    /* 
+      Zooms image 8% on hover.
+      Same effect as product images.
+    */
+}
+
+.service-card .card-overlay {
+    /* 
+      Container for the service title badge.
+      Positioned below the image, overlapping it.
+    */
+    position: relative;
+    /* 
+      Positioning context.
+    */
+    margin: -18px auto 1.2rem;
+    /* 
+      Positioning relative to image.
+      -18px = negative margin creates overlap effect.
+      Pulls title badge up into the image area.
+      auto = centered horizontally.
+      1.2rem = space below badge.
+    */
+    width: fit-content;
+    /* 
+      Width automatically fits the badge content.
+      Doesn't stretch full width.
+    */
+    padding: 0;
+    /* 
+      No padding on overlay container itself.
+    */
+    background: none;
+    /* 
+      No background (badge has its own background).
+    */
+}
+
+.service-card .card-overlay .overlay-title {
+    /* 
+      The service name displayed as a badge.
+      <div class="overlay-title">Custom Orders</div>
+    */
+    background: linear-gradient(135deg, black 0%, #d35400 100%);
+    /* 
+      Orange gradient background.
+      #ff6b35 (bright) to #d35400 (dark) orange.
+      135deg = diagonal gradient.
+      Eye-catching color matches brand.
+    */
+    color: salmon;
+    /* 
+      White text on orange background.
+      High contrast for readability.
+    */
+    padding: -30px;
+    /* 
+      Internal spacing inside badge.
+      10px = top/bottom.
+      22px = left/right.
+      Creates pill-shaped badge.
+    */
+    border-radius: 30px;
+    /* 
+      Very rounded corners.
+      30px = elongated pill shape.
+      Looks like a label or sticker.
+    */
+    font-size: 1rem;
+    /* 
+      Normal body text size.
+    */
+    font-weight: 700;
+    /* 
+      Bold text (700 on 0-900 scale).
+      Makes service name stand out.
+    */
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+    /* 
+      Shadow under badge.
+      0 = no horizontal offset.
+      4px = slight vertical offset.
+      12px = soft blur.
+      rgba(255, 107, 53, 0.25) = orange shadow (25% opacity).
+      Makes badge appear floating.
+    */
+    letter-spacing: 0.3px;
+    /* 
+      Slight letter spacing.
+      Improves readability.
+    */
+
+
+  }
+
+.service-card .service-description {
+    /* 
+      Description text for the service.
+      <p class="service-description">We bake to your taste...</p>
+    */
+    color: #666;
+    /* 
+      Medium gray text.
+      Less prominent than title.
+    */
+    font-size: 0.95rem;
+    /* 
+      Slightly smaller than body text.
+    */
+    line-height: 1.6;
+    /* 
+      Good spacing between lines.
+    */
+    margin: 0 1.5rem;
+    /* 
+      Horizontal margins only.
+      0 = no top/bottom.
+      1.5rem = left and right margins.
+      Keeps text away from card edges.
+    */
+    padding: 0;
+    /* 
+      No padding on paragraph itself.
+    */
+    font-weight: 500;
+    /* 
+      Medium font weight.
+    */
+}
+
+@media (max-width: 1200px) {
+    /* 
+      Media query for medium screens (max 1200px).
+      Typically tablets in landscape.
+    */
+    .service-grid {
+        /* 
+          Changes service grid layout.
+        */
+        grid-template-columns: repeat(2, 1fr);
+        /* 
+          repeat(2, 1fr) = 2 equal columns.
+          Services stack 2 per row instead of 4.
+      Fits better on medium-sized screens.
+        */
+    }
+}
+
+@media (max-width: 768px) {
+    /* 
+      Media query for small screens (max 768px).
+      Typically phones and small tablets.
+    */
+    .service-grid {
+        /* 
+          Further adjusts service grid.
+        */
+        grid-template-columns: 1fr;
+        /* 
+          1fr = single column.
+          Services stack vertically.
+          Full width on mobile.
+        */
+    }
+}
+
+
+/* =======================================
+   VALUES SECTION
+======================================= 
+   Styling for company values display.
+*/
+
+.values-section {
+    /* 
+      Container for values section.
+    */
+    padding: 4.5rem 2rem;
+    /* 
+      Consistent padding with other sections.
+    */
+    background: linear-gradient(180deg, #faf8f5 0%, #f5f2ed 100%);
+    /* 
+      Consistent gradient background.
+    */
+}
+
+.values-section h2 {
+    /* 
+      Section heading for values.
+      <h2>Our Values</h2>
+    */
+    font-size: 2.8rem;
+    /* 
+      Large heading.
+      Same size as other section titles.
+    */
+    text-align: center;
+    /* 
+      Centers heading.
+    */
+    color: #1a1a1a;
+    /* 
+      Very dark color.
+    */
+    margin: 0 0 3.5rem 0;
+    /* 
+      Spacing around heading.
+      0 = no left/right.
+      3.5rem = large space below.
+    */
+    font-weight: 800;
+    /* 
+      Extra bold.
+    */
+    letter-spacing: -0.5px;
+    /* 
+      Tightens letter spacing.
+    */
+}
+
+.values-grid {
+    /* 
+      Container for value boxes.
+      <div class="values-grid"> contains 4 value boxes.
+    */
+    display: grid;
+    /* 
+      CSS Grid layout.
+    */
+    grid-template-columns: repeat(4, 1fr);
+    /* 
+      4 equal columns.
+      Each value gets one column.
+    */
+    gap: 2.5rem;
+    /* 
+      Space between value boxes.
+      Generous spacing for breathing room.
+    */
+    max-width: 1400px;
+    /* 
+      Maximum width.
+    */
+    margin: 0 auto;
+    /* 
+      Centers horizontally.
+    */
+}
+
+.value-box {
+    /* 
+      Individual value box styling.
+      <div class="value-box">
+    */
+    background: #fff;
+    /* 
+      White background.
+    */
+    border-radius: 16px;
+    /* 
+      Rounded corners.
+    */
+    padding: 2.5rem 1.8rem;
+    /* 
+      Internal spacing inside box.
+      2.5rem = top/bottom (vertical padding).
+      1.8rem = left/right (horizontal padding).
+      Creates internal whitespace.
+    */
+    text-align: center;
+    /* 
+      Centers all content inside box.
+    */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    /* 
+      Subtle shadow.
+    */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 
+      Smooth hover animations.
+    */
+    border: 1px solid #f0ebe5;
+    /* 
+      Subtle border.
+    */
+}
+
+.value-box:hover {
+    /* 
+      Hover styles for value boxes.
+    */
+    transform: translateY(-12px);
+    /* 
+      Lifts box up on hover.
+    */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    /* 
+      Enhanced shadow on hover.
+    */
+    border-color: #ff6b35;
+    /* 
+      Orange border on hover.
+    */
+}
+
+.value-box .icon {
+    /* 
+      Emoji icon styling.
+      <div class="icon">🍅</div>
+    */
+    font-size: 3rem;
+    /* 
+      Large emoji size.
+      3rem = 3x root font size.
+      Makes icons prominent and recognizable.
+    */
+    margin-bottom: 1.2rem;
+    /* 
+      Space below icon.
+      Separates icon from title below.
+    */
+    display: block;
+    /* 
+      Makes icon its own block.
+      Ensures emoji displays properly.
+    */
+}
+
+.value-box h3 {
+    /* 
+      Value title heading.
+      <h3>Quality Ingredients</h3>
+    */
+    font-size: 1.2rem;
+    /* 
+      Medium heading size.
+      1.2rem = 20% larger than body.
+    */
+    color: #1a1a1a;
+    /* 
+      Very dark color for good readability.
+    */
+    margin: 0 0 0.8rem 0;
+    /* 
+      Spacing around heading.
+      0 = no left/right margin.
+      0.8rem = space below heading (before description).
+      0 = no margin below second value.
+      Removes default heading margins for custom spacing control.
+    */
+    font-weight: 700;
+    /* 
+      Bold font (700 on 0-900 scale).
+      Makes value titles prominent.
+    */
+    letter-spacing: -0.3px;
+    /* 
+      Slightly tightens letter spacing.
+      Makes title feel more cohesive.
+    */
+}
+
+.value-box p {
+    /* 
+      Description text inside value boxes.
+      <p>We use only the finest ingredients...</p>
+    */
+    color: #666;
+    /* 
+      Medium gray text.
+      Less prominent than title.
+    */
+    font-size: 0.95rem;
+    /* 
+      Slightly smaller than body text.
+    */
+    line-height: 1.6;
+    /* 
+      Good spacing between lines.
+    */
+    margin: 0;
+    /* 
+      No margin (0) around paragraph.
+    */
+    font-weight: 500;
+    /* 
+      Medium font weight.
+    */
+}
+
+@media (max-width: 1200px) {
+    .values-grid {
+        /* 
+          Changes values grid layout.
+        */
+        grid-template-columns: repeat(2, 1fr);
+        /* 
+          repeat(2, 1fr) = 2 equal columns.
+          Values stack 2 per row instead of 4.
+      Fits better on medium-sized screens.
+        */
+    }
+}
+
+@media (max-width: 768px) {
+    .values-grid {
+        /* 
+          Further adjusts values grid.
+        */
+        grid-template-columns: 1fr;
+        /* 
+          1fr = single column.
+          Values stack vertically.
+          Full width on mobile.
+        */
+    }
+}
+
+
+/* =======================================
+   ABOUT SECTION
+======================================= 
+   Styling for the About Us section.
+*/
+
+.About-Us {
+    padding: 4.5rem 0;
+    background-color: #1a1a1a;
+}
+
+.About-Us .section-title {
+    color: #fff;
+    margin: 0 0 3rem 0;
+    padding: 2rem;
+}
+
+.about-grid {
+    display: grid;
+    gap: 0;
+}
+
+.About-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+    gap: 0;
+}
+
+.About-card:nth-child(even) .card-media {
+    order: 2;
+}
+
+.About-card:nth-child(even) .About-text {
+    order: 1;
+}
+
+.About-card .card-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.About-card .card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.About-card:hover .card-media img {
+    transform: scale(1.05);
+}
+
+.About-text {
+    background-color: #1a1a1a;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #e0e0e0;
+}
+
+.About-card .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.About-card .card-overlay .overlay-title {
+    font-size: 2.2rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.About-card p {
+    color: #b0b0b0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .About-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .About-card .card-media {
+        min-height: 300px;
+    }
+    
+    .About-text {
+        padding: 2.5rem;
+    }
+}
+
+
+/* =======================================
+   CONTACT SECTION
+======================================= 
+   Styling for the contact form and information.
+*/
+
+.contact-section {
+    padding: 4.5rem 2rem;
+    background: linear-gradient(180deg, #faf8f5 0%, #f5f2ed 100%);
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 1rem auto 3.5rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.contact-form-box {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border: 1px solid #f0ebe5;
+}
+
+.contact-form-box h3 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin: 0 0 2rem 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e8e2db;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: #faf8f5;
+    font-weight: 500;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ff6b35 0%, #d35400 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(255, 107, 53, 0.4);
+}
+
+.contact-info-box {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border: 1px solid #f0ebe5;
+}
+
+.contact-info-box h3 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin: 0 0 2rem 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.info-item {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f0ebe5;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-icon {
+    font-size: 2.2rem;
+    min-width: 3rem;
+    text-align: center;
+}
+
+.info-item h4 {
+    font-size: 1.05rem;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.info-item p {
+    color: #666;
+    margin: 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.info-item a {
+    color: #ff6b35;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.info-item a:hover {
+    color: #d35400;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form-box,
+    .contact-info-box {
+        padding: 2rem;
+    }
+}
+
+
+/* =======================================
+   FOOTER
+======================================= 
+   Styling for the footer section at the bottom of every page.
+*/
+
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    color: #ddd;
+    padding: 4.5rem 2rem 2rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3.5rem;
+    max-width: 1400px;
+    margin: 0 auto 2.5rem;
+}
+
+.footer-section {
+    padding: 1rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 1.5rem 0;
+    font-weight: 800;
+    border-bottom: 3px solid #ff6b35;
+    padding-bottom: 0.8rem;
+    letter-spacing: -0.3px;
+}
+
+.footer-section p {
+    margin: 0.8rem 0;
+    line-height: 1.8;
+    color: #bbb;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.footer-section a {
+    color: #ff6b35;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.footer-section a:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-form input {
+    padding: 12px 16px;
+    border: 2px solid #ff6b35;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.newsletter-form input::placeholder {
+    color: #999;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #fff;
+    background-color: #333;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15);
+}
+
+.newsletter-form button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff6b35 0%, #d35400 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+    letter-spacing: 0.3px;
+}
+
+.newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.35);
+}
+
+.copyright {
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .footer {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+}
+
+.iframe{
+background-color: bisque;
+outline: #ff6b35;
+}
+
+.registerBtn {
+padding: 5px 20px;
+font-size: 16px;
+}

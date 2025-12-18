@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    <meta charset="UTF-8">
+    <!-- Specifies character encoding as UTF-8 (supports all languages and special characters) -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes page responsive by setting viewport to device width and initial zoom level of 100% -->
+    
+    <title>The Muffin Man</title>
+    <!-- Page title that appears in browser tab and search results -->
+    
+    <link rel="stylesheet" href="Style.css">
+    <!-- Links external CSS stylesheet for styling all HTML elements -->
+    <script src="muffinman.js" defer></script>
+</head>
+
+<body>
+    <!-- Main document body containing all visible content -->
+
+    <!-- =======================================
+         NAVIGATION BAR SECTION
+         ======================================= -->
+    <!-- 
+      The navigation bar is a sticky header that appears at the top of every page.
+      It contains the bakery logo and navigation links to different sections.
+      Uses flexbox layout for horizontal alignment.
+    -->
+    <nav class="navbar">
+        <!-- <nav> semantic element indicates navigation links -->
+        <!-- class="navbar" targets this element in CSS for styling -->
+
+        <div class="logo">
+            <!-- Container for the bakery brand/logo text -->
+            <!-- Styled with gradient orange color for visual impact -->
+            The Muffin Man
+        </div>
+        <!-- End logo div -->
+
+        <div class="nav-links">
+            <!-- Container for all navigation links, uses flexbox for horizontal layout -->
+
+            <!-- Home link - points to index.html (current page) -->
+            <a href="index.html" class="nav-item active">Home</a>
+            <!-- 
+              class="nav-item" - base styling for all nav links
+              class="active" - additional class that highlights the current page
+              href="index.html" - URL path for the Home page
+            -->
+
+            <!-- Products page link -->
+            <a href="products.html" class="nav-item">Products</a>
+            <!-- Links to products.html where users can browse bakery items -->
+
+            <!-- Services page link -->
+            <a href="services.html" class="nav-item">Services</a>
+            <!-- Links to services.html showing custom orders, delivery, workshops, etc. -->
+
+            <!-- About Us page link -->
+            <a href="about.html" class="nav-item">About Us</a>
+            <!-- Links to about.html with company story and values -->
+
+            <!-- Contact & Booking page link -->
+            <a href="contact.html" class="nav-item">Contact & Book</a>
+            <!-- Links to contact.html for getting in touch and booking services -->
+
+            <!-- Checkout page link -->
+            <a href="checkout.html" class="nav-item">Checkout</a>
+            <!-- Links to checkout.html for purchasing products (e-commerce functionality) -->
+
+        </div>
+        <!-- End nav-links div -->
+
+    </nav>
+    <!-- End navbar navigation -->
+
+
+    <!-- =======================================
+         HERO SECTION
+         ======================================= -->
+    <!-- 
+      The hero section is the large prominent banner at the top of the homepage.
+      It features a background image with an overlay text box containing:
+      - Main heading
+      - Descriptive paragraph
+      - Call-to-action button
+    -->
+    <section class="homepage-hero">
+        <!-- <section> semantic element for main content area -->
+        <!-- class="homepage-hero" - targets CSS styles for this section -->
+
+        <!-- Background image for the hero section -->
+        <img src="Yummy.jpg" alt="Yummy Pastries" class="hero-image">
+        <!-- 
+          src="Yummy.jpg" - image file path
+          alt="Yummy Pastries" - alternative text for accessibility (shown if image fails to load)
+          class="hero-image" - CSS class for styling (positioned absolutely as background)
+        -->
+
+        <!-- Text content overlay on top of the background image -->
+        <div class="hero-text-overlay">
+            <!-- 
+              This div is positioned absolutely over the hero image.
+              It contains semi-transparent dark background with white text.
+              Uses flexbox centering and backdrop blur for modern effect.
+            -->
+
+            <!-- Main headline of the website -->
+            <h2>Baking Happiness Every Day</h2>
+            <!-- 
+              <h2> is a secondary heading (h1 would be primary)
+              Large font size (3.2rem) makes this the focal point
+              Announces the brand's core mission
+            -->
+
+            <!-- Descriptive paragraph about the bakery -->
+            <p>
+                At The Muffin Man, we believe that every bite should bring joy. 
+                Our mission is to create delightful baked goods that warm hearts and bring smiles. 
+                From our freshly baked bread to our decadent pastries and cakes, we use the finest ingredients 
+                and time-honored recipes to ensure that each treat is a little piece of happiness.
+            </p>
+            <!-- 
+              <p> paragraph element containing the bakery's mission statement
+              Provides context about the business and values
+              Helps with SEO and user engagement
+            -->
+
+            <!-- Call-to-action button encouraging users to make a purchase -->
+            <a href="checkout.html" class="order-button">Order Now</a>
+            <!-- 
+              <a> anchor tag (link) to checkout.html
+              href="checkout.html" - navigation destination
+              class="order-button" - special styling for prominent button
+              Text "Order Now" encourages immediate action
+              Styled as gradient orange button with shadow and hover effects
+            -->
+
+        </div>
+        <!-- End hero-text-overlay -->
+
+    </section>
+    <!-- End homepage-hero section -->
+
+
+    <!-- =======================================
+         FOOTER SECTION
+         ======================================= -->
+    <!-- 
+      The footer appears at the bottom of every page.
+      Contains:
+      - Quick navigation links
+      - Business hours
+      - Social media links
+      - Newsletter signup form
+      - Copyright information
+    -->
+    <footer class="footer">
+        <!-- <footer> semantic element indicating page footer -->
+        <!-- class="footer" - CSS class for dark background styling -->
+
+        <!-- Main footer content container using CSS grid layout -->
+        <div class="footer-container">
+            <!-- 
+              This div uses CSS Grid with auto-fit columns (responsive)
+              Creates 4 equal columns on desktop, fewer on mobile
+              max-width: 1400px centers content and limits width
+            -->
+
+            <!-- SECTION 1: Quick Links -->
+            <div class="footer-section">
+                <!-- Each footer-section is one grid column -->
+
+                <!-- Section heading -->
+                <h4>Quick Links</h4>
+                <!-- 
+                  <h4> small heading for this footer section
+                  Styled with orange underline border
+                  Helps organize footer content
+                -->
+
+                <!-- Link to home page -->
+                <p><a href="index.html">Home</a></p>
+                <!-- 
+                  <p> paragraph wrapping the link
+                  <a> anchor tag with href to home page
+                  Styled as orange text with hover effects
+                -->
+
+                <!-- Link to products page -->
+                <p><a href="products.html">Products</a></p>
+
+                <!-- Link to services page -->
+                <p><a href="services.html">Services</a></p>
+
+                <!-- Link to about page -->
+                <p><a href="about.html">About Us</a></p>
+
+                <p><a href="contact.html">Contact and Bookings</a></p>
+
+      
+
+            </div>
+            <!-- End Quick Links section -->
+
+
+            <!-- SECTION 2: Business Hours -->
+            <div class="footer-section">
+                <!-- Second footer section column -->
+
+                <h4>Business Hours</h4>
+                <!-- Section heading for operating hours -->
+
+                <!-- Weekday hours -->
+                <p>Monday - Friday: 8am - 6pm</p>
+                <!-- Static text (not a link) showing weekday schedule -->
+
+                <!-- Saturday hours -->
+                <p>Saturday: 9am - 5pm</p>
+                <!-- Saturday schedule (different from weekdays) -->
+
+                <!-- Sunday closure -->
+                <p>Sunday: Closed</p>
+                <!-- Indicates the business is closed on Sundays -->
+
+            </div>
+            <!-- End Business Hours section -->
+
+
+            <!-- SECTION 3: Social Media Links -->
+            <div class="footer-section">
+                <!-- Third footer section for social media -->
+
+                <h4>Follow Us</h4>
+                <!-- Section heading encouraging social media engagement -->
+
+                <!-- Facebook link with emoji icon -->
+                <p><a href="https://www.facebook.com/">📘 Facebook</a></p>
+                <!-- 
+                  emoji icon (📘) makes social links visually recognizable
+                  href="#" is placeholder (would be replaced with actual Facebook URL)
+                -->
+
+                <!-- Instagram link with emoji icon -->
+                <p><a href="https://www.instagram.com/">📸 Instagram</a></p>
+                <!-- Photo camera emoji (📸) represents Instagram -->
+
+                <!-- Twitter link with emoji icon -->
+                <p><a href="https://x.com/">🐦 Twitter</a></p>
+                <!-- Bird emoji (🐦) represents Twitter/X -->
+
+            </div>
+            <!-- End Social Media section -->
+
+
+            <!-- SECTION 4: Newsletter Signup -->
+            <div class="footer-section">
+                <!-- Fourth footer section for email marketing -->
+
+                <h4>Newsletter</h4>
+                <!-- Section heading for newsletter signup -->
+
+                <!-- Newsletter subscription form -->
+                <form class="newsletter-form">
+                    <!-- 
+                      <form> element for collecting user email
+                      class="newsletter-form" - CSS styling for form layout
+                      Uses flexbox column layout for vertical stacking
+                    -->
+
+                    <!-- Email input field -->
+                    <input type="email" placeholder="Enter your email" required>
+                    <!-- 
+                      <input type="email"> creates email input field
+                      type="email" - validates that user enters valid email format
+                      placeholder="Enter your email" - gray helper text
+                      required - browser prevents form submission without email
+                    -->
+
+                    <!-- Submit button -->
+                    <button type="submit">Subscribe</button>
+                    <!-- 
+                      <button type="submit"> creates clickable button
+                      type="submit" - submits the form when clicked
+                      Styled as gradient orange button matching brand colors
+                    -->
+
+                </form>
+                <!-- End newsletter form -->
+
+            </div>
+            <!-- End Newsletter section -->
+
+        </div>
+        <!-- End footer-container -->
+
+        <!-- Copyright notice -->
+        <p class="copyright">© 2025 The Muffin Man. All Rights Reserved.</p>
+        <!-- 
+          <p> paragraph for legal copyright statement
+          © symbol indicates copyright
+          2025 - year of copyright
+          "All Rights Reserved" - standard legal language
+          Styled in smaller gray text at bottom
+        -->
+
+    </footer>
+    <!-- End footer -->
+
+</body>
+<!-- End body - all visible content ends here -->
+
+</html>
+<!-- End HTML document -->
